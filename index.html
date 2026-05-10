@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="id">
+<meta>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partisipasi Riset - Vibe Coding</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+    <meta property="og:title" content="Partisipasi Riset: Dampak AI dalam Coding">
+    <meta property="og:description" content="Bantu kami menganalisis fenomena Vibe Coding terhadap kemampuan mahasiswa Informatika. Pendapat Anda sangat berharga bagi penelitian ini.">
+    <meta property="og:image" content="https://vibecoding.com/images/riset.jpg">
+    <style>
+        :root {
+            --bg-gradient: radial-gradient(circle at top, #f7fbff 0%, #edf6ff 42%, #e9f3fb 100%);
+            --primary-blue: #0c86cf;
+            --dark-blue: #0b4f7d;
+            --glass: rgba(255, 255, 255, 0.84);
+            --card-shadow: 0 20px 45px rgba(15, 23, 42, 0.10);
+            --border: rgba(15, 130, 201, 0.16);
+            --text-soft: #475569;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background: var(--bg-gradient);
+            color: #1e293b;
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 16px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before,
+        body::after {
+            content: '';
+            position: fixed;
+            inset: auto;
+            border-radius: 999px;
+            pointer-events: none;
+            filter: blur(18px);
+            opacity: 0.55;
+            z-index: 0;
+            animation: floatGlow 10s ease-in-out infinite;
+        }
+
+        body::before {
+            width: 220px;
+            height: 220px;
+            top: -40px;
+            right: -40px;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.20) 0%, rgba(14, 165, 233, 0) 68%);
+        }
+
+        body::after {
+            width: 180px;
+            height: 180px;
+            left: -30px;
+            bottom: 20px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.16) 0%, rgba(56, 189, 248, 0) 70%);
+            animation-delay: -4s;
+        }
+
+        .container {
+            position: relative;
+            max-width: 720px;
+            width: 100%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(250, 253, 255, 0.96) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 24px;
+            border: 1px solid transparent;
+            padding: 28px;
+            box-shadow: var(--card-shadow);
+            animation: fadeIn 0.5s ease-out;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 3px;
+            background: linear-gradient(120deg, #38bdf8, #8b5cf6, #0ea5e9, #22d3ee, #60a5fa, #38bdf8);
+            background-size: 300% 300%;
+            animation: borderFlow 8s linear infinite;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .container::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            border-radius: calc(24px - 3px);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.48), rgba(255, 255, 255, 0.18));
+            pointer-events: none;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes borderFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes floatGlow {
+            0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+            50% { transform: translate3d(0, 12px, 0) scale(1.08); }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 18px;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: clamp(1.3rem, 2.6vw, 1.65rem);
+            font-family: 'Plus Jakarta Sans', 'Manrope', sans-serif;
+            font-weight: 800;
+            color: var(--dark-blue);
+            margin-bottom: 12px;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+        }
+
+        .gif-container {
+            width: 100%;
+            max-width: 290px;
+            aspect-ratio: 4 / 3;
+            background: #f8fafc;
+            margin: 14px auto 0;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 1px solid rgba(15, 130, 201, 0.14);
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
+            position: relative;
+            z-index: 1;
+        }
+
+        .gif-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .description {
+            background: rgba(255, 255, 255, 0.86);
+            padding: 18px;
+            border-radius: 14px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(15, 130, 201, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .instruction-card {
+            background: linear-gradient(180deg, rgba(239, 248, 255, 0.95), rgba(247, 251, 255, 0.98));
+            padding: 18px;
+            border-radius: 14px;
+            margin-bottom: 18px;
+            border: 1px solid rgba(15, 130, 201, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        h3 {
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+            font-size: 0.98rem;
+            text-transform: none;
+            letter-spacing: 0;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 0.95rem;
+            color: var(--text-soft);
+        }
+
+        .likert-info {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .likert-item {
+            background: rgba(255, 255, 255, 0.96);
+            padding: 10px 8px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border: 1px solid rgba(148, 163, 184, 0.18);
+            line-height: 1.2;
+            box-shadow: 0 6px 14px rgba(15, 23, 42, 0.04);
+        }
+
+        .likert-number {
+            display: block;
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--dark-blue);
+            margin-bottom: 4px;
+        }
+
+        .btn-container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #0f82c9, #22a3e8);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.98rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 22px rgba(15, 130, 201, 0.24);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px) scale(1.01);
+            box-shadow: 0 12px 26px rgba(15, 130, 201, 0.28);
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            .container { padding: 20px; border-radius: 20px; }
+            .likert-info { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .likert-item:last-child { grid-column: span 2; }
+            h1 { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>Analisis Pengaruh Ketergantungan Generative AI Dalam Fenomena Vibe Coding Terhadap Kemampuan Coding Mahasiswa Informatika</h1>
+            
+            <div class="gif-container">
+                <!-- Ganti src dengan link GIF Anda nanti -->
+                <img src="https://nationalcioreview.com/wp-content/uploads/2025/09/TNCR-graphics-KB-2.gif" alt="Ilustrasi Vibe Coding">
+            </div>
+        </div>
+
+        <div class="description">
+            <h3>Tentang Penelitian</h3>
+            <p>Halo Rekan-rekan Mahasiswa! Penelitian ini ingin memahami bagaimana tren <strong>"Vibe Coding"</strong> dan penggunaan AI seperti ChatGPT, Claude, atau Copilot memengaruhi cara kita belajar, berpikir, dan mengasah logika pemrograman di lingkungan akademik.</p>
+        </div>
+
+        <div class="instruction-card">
+            <h3>Petunjuk Pengisian</h3>
+            <p>Silakan baca setiap pernyataan dengan seksama, lalu pilih jawaban yang paling sesuai dengan pengalaman Anda. Skala yang digunakan adalah <strong>1–5</strong>:</p>
+            
+            <div class="likert-info">
+                <div class="likert-item"><span class="likert-number">1</span>Sangat Tidak Setuju</div>
+                <div class="likert-item"><span class="likert-number">2</span>Tidak Setuju</div>
+                <div class="likert-item"><span class="likert-number">3</span>Netral</div>
+                <div class="likert-item"><span class="likert-number">4</span>Setuju</div>
+                <div class="likert-item"><span class="likert-number">5</span>Sangat Setuju</div>
+            </div>
+            
+            <p style="margin-top: 12px; font-size: 0.88rem; font-style: italic;">
+                *Mohon isi kuesioner ini dengan jujur sesuai pengalaman pribadi Anda. Tidak ada jawaban benar atau salah.
+            </p>
+        </div>
+
+        <div class="btn-container">
+            <!-- Ganti href dengan link Google Form Anda -->
+            <a href="https://forms.gle/yEh2GAQKMJQeUp7J6" class="cta-button">Mulai Isi Kuesioner</a>
+        </div>
+    </div>
+
+</body>
+</html>
